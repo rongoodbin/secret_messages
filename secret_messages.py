@@ -64,7 +64,7 @@ def main():
                             messagepadded_blocks = cipher_help.blocksoffive_encrypt(messagepadded)
                             print("encrypted message in blocks of 5: " + messagepadded_blocks)
                         else:
-                            print("encrypted message: "+messagepadded_blocks)
+                            print("encrypted message: "+messagepadded)
 
                     elif mode == "decrypt" or mode == 'd':
                         blocksfive = input("Was encrpytion done in blocks of 5? y/n:")
