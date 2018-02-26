@@ -1,12 +1,11 @@
 import string
 from ciphers import Cipher
-import helper_functions as cipher_help
 from itertools import cycle
+
 
 class OneTimepad(Cipher):
 
     def __init__(self):
-
        self.LETTERLIST = [ord(char) for char in string.ascii_uppercase]
 
     def encrypt(self, **kwargs):

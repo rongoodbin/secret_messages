@@ -2,7 +2,6 @@ import string
 
 from ciphers import Cipher
 
-
 class Caesar(Cipher):
 
     FORWARD = string.ascii_uppercase * 3
@@ -37,12 +36,9 @@ class Caesar(Cipher):
         return ''.join(output)
 
 
-
-
 if __name__ == "__main__":
     atbash  = Caesar()
     encrypted_text  = atbash.encrypt("testing this code! 2pm")
     print(encrypted_text)
     decrypted_text  = atbash.decrypt(encrypted_text)
     print(decrypted_text)
-

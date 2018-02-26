@@ -1,14 +1,12 @@
 import string
 from ciphers import Cipher
 
+
 class Atbash(Cipher):
-
-
 
     def __init__(self, keyword=None):
         self.FORWARD = string.ascii_uppercase
         self.BACKWARD = string.ascii_uppercase[::-1]
-
 
     def encrypt(self, text):
         self.mode = "encrypt"
@@ -21,7 +19,6 @@ class Atbash(Cipher):
             index_of_letter = self.FORWARD.find(char)
             output.append(self.BACKWARD[index_of_letter])
         return "".join(output)
-
 
     def decrypt(self, text):
         output = []
@@ -41,4 +38,3 @@ if __name__ == "__main__":
     print(encrypted_text)
     decrypted_text  = atbash.decrypt(encrypted_text)
     print(decrypted_text)
-

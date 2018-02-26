@@ -7,8 +7,9 @@ class Affine(Cipher):
     def encrypt(self, text):
 
        """
-       Affine encrption uses an equation where each letter value is multiplied by 5
-       and then add 8 then mod 26 as if the value is greater than 26 we loop around
+       Affine encrption uses an equation where each letter value is multiplied
+       by 5 and then add 8 then mod 26 as if the value is greater than 26 we
+       loop around
        """
        output = []
        self.mode = "encrypt"
@@ -27,8 +28,8 @@ class Affine(Cipher):
     def decrypt(self, text):
 
        """
-       decryption for affine -  do the reverse by substracting 8 from value of letter
-       multiplying by 21 then mod 26 to loop around
+       decryption for affine -  do the reverse by substracting 8 from value of
+       letter multiplying by 21 then mod 26 to loop around
        """
        output = []
        self.mode = "decrypt"
@@ -49,3 +50,5 @@ if __name__ == "__main__":
     encrypted_text  = affine.encrypt("Hello there Ron! Mee me at 2pm")
     print(encrypted_text)
     print(affine.decrypt(encrypted_text))
+    print(cipher_help.blocksoffive_encrypt("Ron is cool dude^#"))
+    print(cipher_help.blocksoffive_decrypt("Ron_i s_coo l_dud e^##&"))
