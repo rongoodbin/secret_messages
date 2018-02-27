@@ -7,6 +7,9 @@ dash = "-"
 available_ciphers_text = "These are the current available ciphers:\n"
 newline = os.linesep
 
+def cls():
+    print('\n'*50)
+
 """
 show the user all available ciphers
 """
@@ -46,12 +49,16 @@ def main():
                         if somethingelse == "n":
                             sys.exit("Thanks for using my secret messages program")
 
+                        cls()
                     mode = input("Are we going to encrypt/decrypt enter "\
                                  "'e' or 'd':")
                     if inWhileLoop:
                         str_from_user = input("What is the message?" + newline)
 
                     pad  = input("Please enter the pad number:")
+                    if pad is None or pad == "":
+                        print("Need a value for the one time pad:")
+                        continue
 
                     onetimepad  = OneTimepad()
                     if mode == "encrypt" or mode == "e":

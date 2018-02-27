@@ -10,12 +10,13 @@ class Keyword(Cipher):
         self.FORWARD = string.ascii_uppercase
         self.setup_mono()
 
-    """
-    setup alphabet with keyword added in the beginning of the alphabet.
-    This is done by removing letters that are in the keyword and then appending 
-    the keyword  to the letter list
-    """
+
     def setup_mono(self):
+        """
+        setup alphabet with keyword added in the beginning of the alphabet.
+        This is done by removing letters that are in the keyword and then appending
+        the keyword  to the letter list
+        """
         self.monoalphabet = [char for char in string.ascii_uppercase]
         for letter in self.keyword:
             try:
@@ -24,10 +25,16 @@ class Keyword(Cipher):
                 pass
         self.monoalphabet =  self.keyword.upper() + "".join(self.monoalphabet)
 
-    """
-    encryption logic for the keyword cipher 
-    """
+
     def encrypt(self, text):
+        """Encryption logic for the keyword cipher.
+
+        Arguments:
+        text -- string message to encrypt.
+
+        Returns:
+        An encrypted string.
+        """
         output = []
         text = text.upper()
         for char in text:
@@ -38,10 +45,17 @@ class Keyword(Cipher):
             output.append(self.monoalphabet[index_of_letter])
         return ''.join(output)
 
-    """
-    decryption logic for the keyword cipher 
-    """
+
     def decrypt(self, text):
+        """decryption logic for the keyword cipher
+
+
+        Arguments:
+        text -- string message to decrypt.
+
+        Returns:
+        Decrypted string.
+        """
         output = []
         text = text.upper()
         for char in text:

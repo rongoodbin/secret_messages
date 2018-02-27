@@ -5,7 +5,6 @@ import helper_functions as cipher_help
 class Affine(Cipher):
 
     def encrypt(self, text):
-
        """
        Affine encrption uses an equation where each letter value is multiplied
        by 5 and then add 8 then mod 26 as if the value is greater than 26 we

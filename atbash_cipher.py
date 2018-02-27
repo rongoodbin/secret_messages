@@ -9,6 +9,14 @@ class Atbash(Cipher):
         self.BACKWARD = string.ascii_uppercase[::-1]
 
     def encrypt(self, text):
+        """Encryption logic for the Atbash cipher.
+
+        Arguments:
+        text -- string message to encrypt.
+
+        Returns:
+        An encrypted string.
+        """
         self.mode = "encrypt"
         output = []
         text = text.upper()
@@ -21,6 +29,14 @@ class Atbash(Cipher):
         return "".join(output)
 
     def decrypt(self, text):
+        """decryption logic for the Atbash cipher
+
+        Arguments:
+        text -- string message to decrypt.
+
+        Returns:
+        Decrypted string.
+        """
         output = []
         text = text.upper()
         for char in text:

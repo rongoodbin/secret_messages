@@ -28,7 +28,7 @@ class TestCiphers(TestCase):
         """
         onetimepad = OneTimepad()
         text_to_encrypt = "HELLO THERE MARRY JANE"
-        pad = "12345"
+        pad = "1234"
         for cipher in cipher_help.available_ciphers:
             if cipher == "keyword":
                 cipher = cipher_help.available_ciphers[cipher]("KEYWORD")
@@ -40,3 +40,11 @@ class TestCiphers(TestCase):
             decrypted_message_padded = onetimepad.decrypt(text=encrypted_message_padded, mode="decrypt", pad="12345")
             decrypted_text = cipher.decrypt(decrypted_message_padded)
             self.assertEqual(text_to_encrypt,decrypted_text)
+
+    def test_cipher_with_empty_onetimepad(self):
+        onetimepad = OneTimepad()
+        text_to_encrypt = "HELLO THERE MARRY JANE"
+        pad = ""
+        cipher = cipher_help.available_ciphers["atbash"]()
+        encrypted_text = cipher.encrypt(text_to_encrypt)
+        self.assertRaises(ValueError, onetimepad.encrypt,text=encrypted_text, mode="encrypt", pad=pad)

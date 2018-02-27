@@ -10,9 +10,15 @@ class OneTimepad(Cipher):
 
     def encrypt(self, **kwargs):
         self.output = []
-        padlist = [int(i) for i in str(kwargs["pad"])]
+        pad = str(kwargs["pad"])
+        padlist = [int(i) for i in pad]
+        if padlist is None or padlist == []:
+            raise ValueError
+
         text = kwargs['text'].upper()
+
         pool = cycle(padlist)
+
         for char in text:
             if char not in string.ascii_uppercase:
                 self.output.append(char)
