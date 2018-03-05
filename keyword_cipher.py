@@ -10,7 +10,6 @@ class Keyword(Cipher):
         self.FORWARD = string.ascii_uppercase
         self.setup_mono()
 
-
     def setup_mono(self):
         """
         setup alphabet with keyword added in the beginning of the alphabet.
@@ -65,6 +64,4 @@ class Keyword(Cipher):
             index_of_letter = self.monoalphabet.find(char)
             output.append(self.FORWARD[index_of_letter])
         return ''.join(output)
-
-
 
